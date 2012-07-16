@@ -1,0 +1,40 @@
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<script src="jquery.js"></script>
+		<link rel="stylesheet" type="text/css" href="bootstrap.min.css">
+		<link rel="stylesheet" href="style.css">
+		<title></title>
+	<script type="text/javascript">
+	$(function( $ ) {
+		$.get('http://seriousroutes.com/', function(rp) {
+			var div = $('<div></div>');
+			$(div).append('<h2 id=seriousroutes><a href="http://seriousroutes.com/">Serious Routes</a></h2>\n');
+			$(div).append($('<div></div>').html($(b=rp)).find('#routes').html());
+			$('#routes').append(div);
+		});
+		$.get('http://resources.grelca.com/route', function(rp) {
+			$('#routes').append('<h2 id=grelca><a href="http://resources.grelca.com/">Housing Routes &amp; Directory</a></h2>\n' + $('<div></div>').html($(rp)).find("#route-list").html());
+		});
+		$('#routes').on("click", "a:not(.btn)", function (event) {
+			chrome.tabs.create({
+				url: $(this).attr('href')
+			});
+		});
+	});
+	</script>
+</head>
+<body>
+	<div class="navbar, navbar-fixed-top">
+			<a href="javascript:history.back()" class="btn">back</a>
+	</div>
+	<div id="routes">
+		<div class="btn-group">
+			<a href="#seriousroutes" class="btn">Serious Routes</a>
+			<a href="#grelca" class="btn">Housing Routes &amp; Directory</a>
+			<a href="#build" class="btn">Build Route</a>
+		</div>
+	</div>
+	<iframe id="build" src="http://glitchroutes.com/build/?yage=1" width="600" height="400"></iframe>
+</body>
+</html>

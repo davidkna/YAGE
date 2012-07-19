@@ -2,4 +2,6 @@ YAGE
 ====
 http://davidkna.github.com/YAGE/
 
-License: CC-BY-SA Germany http://creativecommons.org/licenses/by-sa/3.0/de/
+License: CC BY-SA Germany 3.0 http://creativecommons.org/licenses/by-sa/3.0/de/
+
+Download: https://chrome.google.com/webstore/detail/mfcipeeciejebgakmlmbbpmgokdeekig/

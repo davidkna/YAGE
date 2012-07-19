@@ -1,6 +1,6 @@
 {
   "name": "YAGE (Yet Another Glitch Extension)",
-  "version": "1.0.2",
+  "version": "1.1.1",
 
   "description": "Read Glitch Strategy blog, Search Glitch Strategy Wiki & look for housing routes",
   "icons": { "16" : "images/icon.png",
@@ -17,5 +17,6 @@
     "default_icon": "images/icon.png", 
     "default_title": "YAGE (Yet Another Glitch Extension)",      
     "default_popup": "popup.html"       
-  }
+  },
+    "update_url": "http://clients2.google.com/service/update2/crx"
 }

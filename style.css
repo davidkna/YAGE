@@ -20,3 +20,7 @@ body {
 	-webkit-column-count: 2;
 			column-count: 2;
 }
+#build {
+	min-height: 600px;
+	min-width: 600px;
+}

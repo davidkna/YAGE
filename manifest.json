@@ -1,6 +1,6 @@
 {
   "name": "YAGE (Yet Another Glitch Extension)",
-  "version": "1.1.1",
+  "version": "1.2.0",
 
   "description": "Read Glitch Strategy blog, Search Glitch Strategy Wiki & look for housing routes",
   "icons": { "16" : "images/icon.png",
@@ -11,12 +11,20 @@
     "http://feeds.feedburner.com/GlitchStrategy",
     "http://seriousroutes.com/",
     "http://glitchroutes.com/build/",
-    "http://resources.grelca.com/route"
+    "http://resources.grelca.com/route",
+    "tabs"
 	],
 	"browser_action": {
     "default_icon": "images/icon.png", 
     "default_title": "YAGE (Yet Another Glitch Extension)",      
     "default_popup": "popup.html"       
   },
-    "update_url": "http://clients2.google.com/service/update2/crx"
+ "content_scripts": [
+    {
+      "matches": ["http://glitchroutes.com/build/*"],
+      "css": ["bootstrap.min.css", "buildroute.css"],
+      "run_at": "document_idle",
+      "all_frames": true
+    }
+  ]
 }

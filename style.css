@@ -1,6 +1,7 @@
 body {
-	min-width: 600px;
+	min-width: 405px;
 	min-height: 400px;
+	margin: 0 !important;
 }
 #feed a {
 	color:#000 !important;
@@ -11,16 +12,13 @@ body {
 #cnt, #top, #routes {
 	margin-top: 40px;
 }
-.navbar-fixed-top {
-	right: initial !important;
-}
 #result {
 	list-style: none;
 	padding: 0;
+	margin: 0 0 0 5px;
 	-webkit-column-count: 2;
 			column-count: 2;
 }
-#build {
-	min-height: 600px;
-	min-width: 600px;
+input[type="text"] {
+    box-sizing: content-box;
 }

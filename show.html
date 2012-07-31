@@ -1,34 +1,10 @@
 <html>
 	<head>
 		<title></title>
-		<script src="jQuery.js"></script>
+		<script src="jquery.js"></script>
+		<script src="show.js"></script>
 		<link rel="stylesheet" type="text/css" href="bootstrap.min.css">
 		<link rel="stylesheet" href="style.css">
-		<script type="text/javascript">
-			$(function ( $ ) {
-				function getUrlVar(key) {
-					var result = new RegExp(key + "=([^&]*)", "i").exec(window.location.search);
-					return decodeURIComponent(result && result[1] || "");
-				}
-				$.getJSON('http://www.glitch-strategy.com/w/api.php', {
-					'action': 'parse',
-					'format': 'json',
-					'page': getUrlVar("s"),
-					'prop': 'text'
-				}, function (response) {
-					$('#cnt').html(response.parse.text['*']);
-					$('#cnt').prepend('<h1>' + getUrlVar('s') + '</h1>\n');
-					$('#cnt img').each(function () {
-						var $this = $(this);
-						$this.attr('src', 'http://www.glitch-strategy.com/' + $this.attr('src'))
-					});
-					$('#cnt a').each(function () {
-						var $this = $(this);
-						if ($this.attr('href')[0] != '#') $this.attr('href', 'http://www.glitch-strategy.com/' + $this.attr('href'))
-					});
-				});
-			});			
-		</script>
 	</head>
 	<body>
 		<div class="navbar, navbar-fixed-top">

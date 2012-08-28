@@ -21,4 +21,13 @@ body {
 }
 input[type="text"] {
     box-sizing: content-box;
+	-webkit-column-count: 2;
+			column-count: 2;
+}
+input[type="text"] {
+    box-sizing: content-box;
+}
+.min12, .min36 {
+	-webkit-column-count: 2;
+			column-count: 2;
 }

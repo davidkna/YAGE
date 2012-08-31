@@ -7,11 +7,11 @@ $(function ($) {
 	});
 	$.get('http://seriousroutes.com/', function (rp) {
 		var div = $('<div></div>'),
-			$rp = $(rp);
-		$rp.find('button').addClass('btn');
+			$rp = $(rp.replace('<script src="http://seriousroutes.com/script.js"></script>', '')),
+			$srs = $('#serious');
 		$(div).append('<h2 id=seriousroutes><a href="http://seriousroutes.com/">Serious Routes</a></h2>\n' + $('<div></div>').html($rp).find('#routes').html());
-		$('#serious').append(div);
-		$('#serious button').addClass('btn');
+		$srs.append(div);
+		$srs.find('button').addClass('btn');
 	});
 	$.get('http://resources.grelca.com/route', function (rp) {
 		$('#grelca').append('<h2 id=grelca><a href="http://resources.grelca.com/">Housing Routes &amp; Directory</a></h2>\n' + $('<div></div>').html($(rp)).find("#route-list").html());

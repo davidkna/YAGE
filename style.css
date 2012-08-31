@@ -27,7 +27,7 @@ input[type="text"] {
 input[type="text"] {
     box-sizing: content-box;
 }
-.min12, .min36 {
+#serious > div > div > div {
 	-webkit-column-count: 2;
 			column-count: 2;
 }

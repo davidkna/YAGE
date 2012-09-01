@@ -7,7 +7,7 @@ $(function ($) {
 	});
 	$.get('http://seriousroutes.com/', function (rp) {
 		var div = $('<div></div>'),
-			$rp = $(rp.replace('<script src="http://seriousroutes.com/script.js"></script>', '')),
+			$rp = $(rp.replace('<script src="http://seriousroutes.com/script.js?v=00"></script>', '')),
 			$srs = $('#serious');
 		$(div).append('<h2 id=seriousroutes><a href="http://seriousroutes.com/">Serious Routes</a></h2>\n' + $('<div></div>').html($rp).find('#routes').html());
 		$srs.append(div);

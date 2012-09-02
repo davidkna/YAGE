@@ -11,7 +11,10 @@ $(function ($) {
 			$srs = $('#serious');
 		$(div).append('<h2 id=seriousroutes><a href="http://seriousroutes.com/">Serious Routes</a></h2>\n' + $('<div></div>').html($rp).find('#routes').html());
 		$srs.append(div);
-		$srs.find('button').addClass('btn');
+		$srs.find('form').each(function() {
+			$(this).attr('action', 'http://www.glitch.com/locations/' + $(this).attr('action'));
+			$(this).find('button').addClass('btn');
+		});
 	});
 	$.get('http://resources.grelca.com/route', function (rp) {
 		$('#grelca').append('<h2 id=grelca><a href="http://resources.grelca.com/">Housing Routes &amp; Directory</a></h2>\n' + $('<div></div>').html($(rp.replace(/<script[ >][\s\S]*?<\/script>/g, ''))).find("#route-list").html());

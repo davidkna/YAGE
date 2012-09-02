@@ -1,6 +1,6 @@
 {
   "name": "YAGE (Yet Another Glitch Extension)",
-  "version": "1.2.6",
+  "version": "1.2.7",
   "description": "Read Glitch Strategy blog, Search Glitch Strategy Wiki & look for housing routes",
   "icons": { "16" : "images/icon.png",
  			"48" : "images/48.png",

@@ -23,6 +23,10 @@ $(function ($) {
 		});
 	}
 
+	$('#result').on('click', 'a', function(e) {
+		localStorage['openEntry'] = $(this).text();
+	})
+
 	if (getUrlVar('s')) search(getUrlVar('s'));
 	$('#s').keypress(function () {
 		search($('#s').val());

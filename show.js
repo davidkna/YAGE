@@ -3,32 +3,21 @@ $(function ($) {
 		var result = new RegExp(key + "=([^&]*)", "i").exec(location.search);
 		return decodeURIComponent(result && result[1] || "");
 	}
+
+	var page = getUrlVar('s') || localStorage['openEntry'];
 	$.getJSON('http://www.glitch-strategy.com/w/api.php', {
 		'action': 'parse',
 		'format': 'json',
-		'page': getUrlVar('s'),
+		'page': page,
 		'prop': 'text'
 	}, function (response) {
-		$('#cnt').empty().append(response.parse.text['*']);
-		$('#cnt').prepend('<h1>' + getUrlVar('s') + '</h1>\n');
-		$('#cnt img').each(function () {
-			var $this = $(this);
-			if ($this.attr('src')[0] == '/') $this.attr('src', 'http://www.glitch-strategy.com' + $this.attr('src'))
-		});
+		console.log(page);
+		$('#cnt').empty().append('<h1>' + page + '</h1>\n'+response.parse.text['*'].replace(new RegExp('src="/', 'g'), 'src="http://www.glitch-strategy.com/').replace(new RegExp('href="/wiki/', 'g'), 'data-wiki="1" href="show.html?s=').replace(new RegExp('href="/', 'g'), 'href="http://www.glitch-strategy.com/'));
+		localStorage.clear();
 		$('#cnt a').each(function () {
 			var $this = $(this),
 				oHref = this.href.split('/');
-			if ( oHref[0] == 'chrome-extension:' ) {
-				if ( oHref[3] == 'wiki') this.href = 'show.html?s=' + $(this).html();
-				else {
-					$(this).on("click", function (event) {
-						chrome.tabs.create({
-							url: 'http://www.glitch-strategy.com' + this.pathname
-						});
-					});
-					this.href = 'http://www.glitch-strategy.com' + this.pathname;
-				}
-		} else {
+			if ( oHref[0] != 'chrome-extension:' ) {
 			$(this).on("click", function (event) {
 				chrome.tabs.create({
 					url: $(this).attr('href')

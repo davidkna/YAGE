@@ -26,6 +26,6 @@ $(function ($) {
 	if (getUrlVar('s')) search(getUrlVar('s'));
 	$('#s').keypress(function () {
 		search($('#s').val());
-		history.pushState({}, '', 'search.html?s=' + $('#s').val());
+		history.pushState({}, '', 'search.html?s=' + encodeURIComponent($('#s').val()));
 	});
 });

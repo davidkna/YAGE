@@ -26,7 +26,7 @@ $(function ($) {
 	});
 	$('.star').remove();
 	$('button, input[type="submit"]').addClass('btn');
-	$('.tab-content').on('click', function (event) {
+	$('.tab-content').on('a', 'click', function (event) {
 		chrome.tabs.create({
 			url: $(this).attr('href')
 		});

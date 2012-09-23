@@ -1,5 +1,5 @@
 body {
-	min-width: 428px;
+	min-width: 432px;
 	min-height: 400px;
 	margin: 0 !important;
 }
@@ -34,10 +34,10 @@ body {
 			column-count: 2;
 }
 .loading {
-	margin-left: 206px;
+	margin-left: 208px;
 }
 .brand {
-    padding-left: 65px !important;
+    padding-left: 67px !important;
 }
 table {
     width: 428px;

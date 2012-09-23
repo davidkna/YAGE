@@ -9,20 +9,13 @@ body {
 #feed a:hover {
 	text-decoration: none !important;
 }
-#cnt, #top_ {
+.top {
 	margin-top: 50px;
 }
 #feed img {
 	float: left;
 	margin: 3px;
 	width: 200px;
-}
-#result {
-	list-style: none;
-	padding: 0;
-	margin: 0 0 0 5px;
-	-webkit-column-count: 2;
-			column-count: 2;
 }
 #build input[type="text"] {
     box-sizing: content-box;
@@ -32,6 +25,9 @@ body {
 #serious > div > div > div {
 	-webkit-column-count: 2;
 			column-count: 2;
+}
+#grelca {
+	list-style-type: none;
 }
 .loading {
 	margin-left: 208px;

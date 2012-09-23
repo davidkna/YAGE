@@ -1,6 +1,6 @@
 YAGE
 ====
-http://davidkna.github.com/YAGE/
+http://github.com/davidkna/YAGE/
 
 License: CC BY-SA Germany 3.0 http://creativecommons.org/licenses/by-sa/3.0/de/
 

@@ -6,22 +6,67 @@
 		<script src="popup.js"></script>
 		<link rel="stylesheet" type="text/css" href="bootstrap.min.css">
 		<link rel="stylesheet" href="style.css">
+		<base>
 	</head>
 	<body>
 		<div class="navbar navbar-fixed-top">
 			<div class="navbar-inner"> <a class="brand" href="#">YAGE</a>
+
 				<ul class="nav">
-					<li class="active"><a href="#">GS Feed</a>
+					<li class="active"><a href="#feed" data-toggle="tab">GS Feed</a>
+
 					</li>
-					<li><a href="search.html">GS Wiki</a>
+					<li><a href="#wiki" data-toggle="tab">GS Wiki</a>
+
 					</li>
-					<li><a href="routes.html">Routes</a>
+					<li><a href="#routes" data-toggle="tab">Routes</a>
+
 					</li>
 				</ul>
 			</div>
 		</div>
-		<h2 id="top_">Glitch Strategy Feed</h2>
-		<div id="feed"></div>
-	</body>
+		<div class="tab-content">
+			<div class="tab-pane active" id="feed">
+					<h2 class="top">Glitch Strategy Feed</h2>
 
+				<div class="feed"></div>
+			</div>
+			<div class="tab-pane" id="wiki">		
+				<h2 class="top">Glitch Strategy Wiki</h2>
+				<form class="form-search">
+					<input type="search" name="s" id="s" tabindex="1" placeholder="Search"
+					class="search-query">
+					<button type="submit" class="btn">Search</button>
+				</form>
+				<div id="cnt"></div>
+			</div>
+			<div class="tab-pane" id="routes">
+					<h2 class="top">Glitch Housing Routes</h2>
+
+				<div class="tabbable" id="routes">
+					<ul class="nav nav-tabs">
+						<li class="active">
+							<a href="#grelca" data-toggle="tab">Housing Routes &amp; Directory</a>
+						</li>
+						<li>
+							<a href="#serious" data-toggle="tab">Serious Routes</a>
+						</li>
+						<li>
+							<a href="#build" data-toggle="tab">Build Route</a>
+						</li>
+					</ul>
+					<div class="tab-content">
+						<div class="tab-pane active" id="grelca">
+							<img src="images/ajax-loader.gif" alt="loading..." class="loading">
+						</div>
+						<div class="tab-pane" id="serious">
+							<img src="images/ajax-loader.gif" alt="loading..." class="loading">
+						</div>
+						<div class="tab-pane" id="build">
+							<img src="images/ajax-loader.gif" alt="loading..." class="loading">
+						</div>
+					</div>
+				</div>
+			</div>
+	</body>
 </html>

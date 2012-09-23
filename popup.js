@@ -57,20 +57,14 @@ $(function ($) {
 		return decodeURIComponent(result && result[1] || "");
 	}
 
-	function search(query) {
+	function search(query, process) {
 		jQuery.getJSON('http://www.glitch-strategy.com/w/api.php', {
 			'fomat': 'json',
 			'action': 'opensearch',
 			'search': query,
 			'limit': 100
 		}, function (response) {
-			$('#result').empty();
-			for (var i = 0; i < response[1].length; i++) {
-				//$('#result').append('<li><a href="show.html?s=' + response[1][i] + '">' + response[1][i] + '</a></li>\n');
-				$('#s').typeahead({
-					'source': response[1]
-				});
-			}
+			process(response[1]);
 		});
 	}
 
@@ -101,7 +95,9 @@ $(function ($) {
 	}
 	if (getUrlVar('s')) search(getUrlVar('s'));
 	$('#s').keypress(function () {
-		search($('#s').val());
+		$('#s').typeahead({
+					'source': search
+		});
 	});
 	$('#cnt').on('click', 'a[data-wiki="1"]', function () {
 		$('#s').val($(this).text());

@@ -77,7 +77,7 @@ $(function ($) {
 			'prop': 'text'
 		}, function (response) {
 			$('base').attr('href', 'http://www.glitch-strategy.com');
-			$('#cnt').empty().append('<hr><h1>' + page + '</h1>\n' + response.parse.text['*'].replace(new RegExp('href="/wiki/', 'g'), 'data-wiki="1" href="http://glitch-strategy.com/wiki/'));
+			$('#cnt').empty().append('<hr><h1>' + page.replace(new RegExp('_', 'g'), ' ') + '</h1>\n' + response.parse.text['*'].replace(new RegExp('href="/wiki/', 'g'), 'data-wiki="1" href="http://glitch-strategy.com/wiki/'));
 			localStorage.clear();
 			$('#cnt a').not('a[data-wiki="1"]').each(function () {
 				var $this = $(this),
@@ -100,8 +100,9 @@ $(function ($) {
 		});
 	});
 	$('#cnt').on('click', 'a[data-wiki="1"]', function () {
-		$('#s').val($(this).text());
-		openWiki($(this).text());
+		var page = this.href.split('/')[4];
+		$('#s').val(page.replace(new RegExp('_', 'g'), ' '));
+		openWiki(page);
 	})
 	$('form').eq(0).submit(function (e) {
 		openWiki($('#s').val());

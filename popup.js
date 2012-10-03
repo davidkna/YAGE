@@ -141,47 +141,47 @@ $(function ($) {
 							url: $(this)
 								.attr('href')
 						});
-
-					}
 					});
-				$('.cquote')
-					.each(function () {
-					$(this)
-						.after('<blockquote>' + $(this)
-						.find('td')
-						.eq(1)
-						.html() + '</blockquote>');
-					$(this)
-						.remove()
-				})
-				$('base')
-					.attr('href', '');
+				}
 			});
-		}
-		if (getUrlVar('s')) search(getUrlVar('s'));
+			$('.cquote')
+				.each(function () {
+				$(this)
+					.after('<blockquote>' + $(this)
+					.find('td')
+					.eq(1)
+					.html() + '</blockquote>');
+				$(this)
+					.remove()
+			})
+			$('base')
+				.attr('href', '');
+		});
+	}
+	if (getUrlVar('s')) search(getUrlVar('s'));
+	$('#s')
+		.keypress(function () {
 		$('#s')
-			.keypress(function () {
-			$('#s')
-				.typeahead({
-				'source': search
-			});
+			.typeahead({
+			'source': search
 		});
-		$('#cnt')
-			.on('click', 'a[data-wiki="1"]', function () {
-			var page = this.href.split('/')[4];
-			$('#s')
-				.val(page.replace(new RegExp('_', 'g'), ' '));
-			openWiki(page);
-		})
-		$('form')
-			.eq(0)
-			.submit(function (e) {
-			openWiki($('#s')
-				.val());
-			return false;
-		});
+	});
+	$('#cnt')
+		.on('click', 'a[data-wiki="1"]', function () {
+		var page = this.href.split('/')[4];
+		$('#s')
+			.val(page.replace(new RegExp('_', 'g'), ' '));
+		openWiki(page);
+	})
+	$('form')
+		.eq(0)
+		.submit(function (e) {
+		openWiki($('#s')
+			.val());
+		return false;
+	});
 
-		});
+});
 /**
 * Bootstrap.js by @fat & @mdo
 * plugins: bootstrap-tab.js, bootstrap-typeahead.js

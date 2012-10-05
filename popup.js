@@ -53,17 +53,17 @@ $(function ($) {
 				.html($rp)
 				.find('#routes')
 				.html());
-			$(div).find('a').each(function() {
+			$(div).find('a').each(function () {
 				$(this).replaceWith($(this).html())
 			});
-			$(div).find('#top h3').each(function(i) {
+			$(div).find('#top h3').each(function (i) {
 				index++;
-				res += '<div class="accordion-group"><a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse'+ index +'">' + $(this).html() + '</a><div id="collapse' + index + '" class="accordion-body collapse"><div class="accordion-inner">' + $(this).parent().find('div:not(.expand)').eq(i).html() + '</div></div></div>';
+				res += '<div class="accordion-group"><a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse' + index + '">' + $(this).html() + '</a><div id="collapse' + index + '" class="accordion-body collapse"><div class="accordion-inner">' + $(this).parent().find('div:not(.expand)').eq(i).html() + '</div></div></div>';
 			});
 			res += '<h3>Bottom sign routes</h3>'
-			$(div).find('#bottom h3').each(function(i) {
+			$(div).find('#bottom h3').each(function (i) {
 				index++;
-				res += '<div class="accordion-group"><a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse'+ index +'">' + $(this).html() + '</a><div id="collapse' + index + '" class="accordion-body collapse"><div class="accordion-inner">' + $(this).parent().find('div:not(.expand)').eq(i).html() + '</div></div></div>';
+				res += '<div class="accordion-group"><a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse' + index + '">' + $(this).html() + '</a><div id="collapse' + index + '" class="accordion-body collapse"><div class="accordion-inner">' + $(this).parent().find('div:not(.expand)').eq(i).html() + '</div></div></div>';
 			});
 			res += '</div>';
 			$srs.empty().append(res);
@@ -127,7 +127,8 @@ $(function ($) {
 
 	function openWiki(page) {
 		$('#cnt')
-			.html('<img src="images/ajax-loader.gif" alt="loading..." class="loading">');
+			.empty()
+			.append('<img src="images/ajax-loader.gif" alt="loading..." class="loading">');
 		$.getJSON('http://www.glitch-strategy.com/w/api.php', {
 			'action': 'parse',
 			'format': 'json',
@@ -181,7 +182,7 @@ $(function ($) {
 	});
 	$('#cnt')
 		.on('click', 'a[data-wiki="1"]', function () {
-		var page = this.href.split('/')[4];
+		var page = decodeURIComponent(this.href.split('/')[4]);
 		$('#s')
 			.val(page.replace(new RegExp('_', 'g'), ' '));
 		openWiki(page);
